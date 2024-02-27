@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Page</title>
+<link rel="stylesheet" href="css/home.css">
+<script>
+var timeLeft = 300;
+var timerId = setInterval(countdown, 1000);
+
+function countdown() {
+    if (timeLeft == 0) {
+        clearTimeout(timerId);
+        submitQuiz();
+    } else {
+        document.getElementById("timer").innerHTML = timeLeft + ' seconds remaining';
+        timeLeft--;
+    }
+}
+
+function submitQuiz() {
+    
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+    <div id="wrapper">
+    <div class="container">
+
+<h1 class="heading">Quiz Questions</h1>
+<p id="timer">300 seconds remaining</p>
+
+<form id="quizForm" action ="/quiz" method = "post">
+    <!-- Question 1 -->
+    <p>Question 1: What is 2+2?</p>
+    <input type="radio" name="question1" value="A"> 3<br>
+    <input type="radio" name="question1" value="B"> 4<br>
+    <input type="radio" name="question1" value="C"> 5<br>
+    <br>
+    <!-- Question 2 -->
+    <p>Question 2: Which of the following programming languages is not a high-level language?</p>
+    <input type="radio" name ="question2" value="A"> C++<br>
+    <input type="radio" name ="question2" value="B"> Java<br>
+    <input type="radio" name ="question2" value="c"> Python<br>
+    <br>
+    <!--Question 3 -->
+    <p>Question 3:  What does HTML stand for?</p>
+    <input type="radio" name="question3" value="A">Hyper Text Markup Language<br>
+    <input type="radio" name ="question3" value="B">Http<br>
+    <input type="radio" name ="question3" value="c">HyperTML<br>
+    <br>
+    <!--Question 4 -->
+    <P>Question 4: What is this behavior?</P>
+    <input type="radio" name ="question4" value="A">That's what it is<br>
+    <input type="radio" name ="question4" value="B">Nothing<br>
+    <input type="radio" name ="question4" value="C">I don't know<br>
+    <br>
+     <!--Question 5 -->
+     <P>Question 5: What is this CSS?</P>
+     <input type="radio" name ="question5" value="A">How can we know?<br>
+     <input type="radio" name ="question5" value="B">Nothing<br>
+     <input type="radio" name ="question5" value="C">I don't know<br>
+    <br>
+    <input type="button" value="Submit" class="button" onclick="submitQuiz()">
+</form>
+</div>
+</div>
+</body>
+</html>
